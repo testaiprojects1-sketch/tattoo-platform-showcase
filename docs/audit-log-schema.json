@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tattoo Platform Audit Log Entry",
+  "type": "object",
+  "required": ["trace_id", "timestamp", "event_type", "payload"],
+  "properties": {
+    "trace_id": { "type": "string", "format": "uuid" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "event_type": { "enum": ["course_purchase", "booking_created", "booking_cancelled", "deposit_collected", "membership_renewal", "portfolio_view", "video_play"] },
+    "payload": { "type": "object" }
+  }
+}

@@ -1,0 +1,62 @@
+%%{init: {'theme': 'base', 'themeVariables': {
+  'primaryColor': '#0B2D4A',
+  'primaryTextColor': '#fff',
+  'primaryBorderColor': '#00C9A7',
+  'lineColor': '#888',
+  'secondaryColor': '#1A1A2E',
+  'tertiaryColor': '#E85D4D',
+  'background': 'transparent',
+  'mainBkg': 'transparent',
+  'secondBkg': 'transparent',
+  'tertiaryBkg': 'transparent'
+}}}%%
+flowchart LR
+    subgraph Public[Public Site]
+        Portfolio[Artist Portfolio]
+        Gallery[Image Gallery]
+        SEO[SEO + Sitemap]
+    end
+    subgraph Courses[Course Platform]
+        Catalog[Course Catalog]
+        Player[Video Player]
+        Membership[Memberships]
+        Checkout[Stripe Checkout]
+    end
+    subgraph Booking[Booking System]
+        Calendar[Availability Calendar]
+        Deposit[Deposit Collection]
+        Reminders[Automated Reminders]
+    end
+    subgraph Backend[Backend (Next.js API + Supabase)]
+        Auth[Auth + RLS]
+        API[API Routes]
+        PG[(PostgreSQL)]
+        Webhooks[Stripe Webhooks]
+    end
+    subgraph Governance[Governance]
+        Audit[Audit Logger]
+        Analytics[Analytics Events]
+        Privacy[GDPR Compliance]
+    end
+
+    Portfolio --> Auth
+    Gallery --> API
+    SEO --> API
+    Catalog --> Auth
+    Player --> API
+    Membership --> Checkout
+    Checkout --> Webhooks
+    Calendar --> API
+    Deposit --> Checkout
+    Reminders --> API
+    API --> PG
+    Webhooks --> PG
+    API --> Audit
+    Audit --> Analytics
+    Analytics --> Privacy
+
+    style Public fill:#0B2D4A,color:#fff
+    style Courses fill:#1A1A2E,color:#fff
+    style Booking fill:#1A1A2E,color:#fff
+    style Backend fill:#00C9A7,color:#0B2D4A
+    style Governance fill:#E85D4D,color:#fff

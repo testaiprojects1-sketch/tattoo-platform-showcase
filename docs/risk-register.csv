@@ -1,0 +1,6 @@
+id,risk,likelihood,impact,mitigation,owner,status
+R-01,Stripe webhook failure,Medium,High,"Idempotent handlers + retry + alerting",Jane,Active
+R-02,Video streaming cost overrun,Medium,Medium,"Cloudflare Stream + usage alerts",Jane,Monitored
+R-03,Booking double-booking,Low,High,"Database constraints + optimistic locking",Jane,Active
+R-04,Image optimization pipeline failure,Medium,Medium,"Next.js Image fallback + monitoring",Jane,Monitored
+R-05,GDPR data deletion incomplete,Low,Critical,"Automated cascade delete + verification",Jane,Planned

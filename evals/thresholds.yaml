@@ -1,0 +1,19 @@
+# Evaluation Thresholds
+regression:
+  min_pass_rate: 0.95
+  webhook_idempotency: 1.0
+  booking_constraints: 1.0
+
+security:
+  max_critical_findings: 0
+  max_high_findings: 0
+
+compliance:
+  pci_dss_saq_a: true
+  gdpr_analytics_anonymized: true
+  data_retention_configured: true
+
+gates:
+  block_merge_on_regression_failure: true
+  block_merge_on_security_failure: true
+  block_merge_on_compliance_failure: true
